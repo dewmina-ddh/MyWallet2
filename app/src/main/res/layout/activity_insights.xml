@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/insightsMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    tools:context=".InsightsActivity">
+
+    <!-- Scrollable Insights Body -->
+    <ScrollView
+        android:id="@+id/scrollViewInsights"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="84dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
+
+            <!-- Top Header (Insights & More 3-Dots Button) -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insights"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/navy_text"
+                    android:layout_centerVertical="true" />
+
+                <!-- 3-Dots More Button -->
+                <ImageView
+                    android:id="@+id/btnMore"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_more_dots"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="More Options" />
+            </RelativeLayout>
+
+            <!-- Spending Overview Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spending Overview"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/navy_text"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Time Filter Tabs (Day, Week, Month, Year) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_time_filter_container"
+                android:padding="4dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/tabDay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Day"
+                    android:textColor="#64748B"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tabWeek"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Week"
+                    android:textColor="#64748B"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tabMonth"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Month"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_pill_filter_active" />
+
+                <TextView
+                    android:id="@+id/tabYear"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Year"
+                    android:textColor="#64748B"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Interactive Dynamic Bar Chart Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_white_card"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Header inside chart card -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tvChartPeriodLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spending Trends"
+                        android:textColor="@color/navy_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/tvChartTotalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$0.00"
+                        android:textColor="@color/navy_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <!-- Custom Interactive Bar Chart View -->
+                <com.example.mywallet.BarChartView
+                    android:id="@+id/barChartView"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp" />
+
+            </LinearLayout>
+
+            <!-- Top Spending Areas Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Spending Areas"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/navy_text"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 2x2 Grid of Spending Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <!-- Row 1: Food & Dining | Travel -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="10dp">
+
+                    <!-- Card 1: Food & Dining -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_white_card"
+                        android:padding="14dp"
+                        android:layout_marginEnd="6dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_category_food"
+                                android:layout_marginEnd="6dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Food &amp; Dining"
+                                android:textColor="@color/navy_text"
+                                android:textSize="12.5sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvFoodTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="@color/navy_text"
+                            android:textSize="15.5sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <!-- Progress Bar & Percentage -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ProgressBar
+                                android:id="@+id/progressFood"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="6dp"
+                                android:layout_weight="1"
+                                android:progress="0"
+                                android:max="100"
+                                android:progressDrawable="@drawable/progress_bar_food" />
+
+                            <TextView
+                                android:id="@+id/tvFoodPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="#EF4444"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="6dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Card 2: Travel -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_white_card"
+                        android:padding="14dp"
+                        android:layout_marginStart="6dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_trans_airplane"
+                                android:layout_marginEnd="6dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Travel"
+                                android:textColor="@color/navy_text"
+                                android:textSize="12.5sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTravelTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="@color/navy_text"
+                            android:textSize="15.5sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <!-- Progress Bar & Percentage -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ProgressBar
+                                android:id="@+id/progressTravel"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="6dp"
+                                android:layout_weight="1"
+                                android:progress="0"
+                                android:max="100"
+                                android:progressDrawable="@drawable/progress_bar_travel" />
+
+                            <TextView
+                                android:id="@+id/tvTravelPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="#F97316"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="6dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 2: Utilities & Bills | Shopping -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="2">
+
+                    <!-- Card 3: Utilities & Bills -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_white_card"
+                        android:padding="14dp"
+                        android:layout_marginEnd="6dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_category_utilities"
+                                android:layout_marginEnd="6dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Utilities &amp; Bills"
+                                android:textColor="@color/navy_text"
+                                android:textSize="12.5sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvUtilitiesTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="@color/navy_text"
+                            android:textSize="15.5sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <!-- Progress Bar & Percentage -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ProgressBar
+                                android:id="@+id/progressUtilities"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="6dp"
+                                android:layout_weight="1"
+                                android:progress="0"
+                                android:max="100"
+                                android:progressDrawable="@drawable/progress_bar_utilities" />
+
+                            <TextView
+                                android:id="@+id/tvUtilitiesPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="#EAB308"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="6dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Card 4: Shopping -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_white_card"
+                        android:padding="14dp"
+                        android:layout_marginStart="6dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_category_shopping"
+                                android:layout_marginEnd="6dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shopping"
+                                android:textColor="@color/navy_text"
+                                android:textSize="12.5sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvShoppingTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textColor="@color/navy_text"
+                            android:textSize="15.5sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <!-- Progress Bar & Percentage -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ProgressBar
+                                android:id="@+id/progressShopping"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="6dp"
+                                android:layout_weight="1"
+                                android:progress="0"
+                                android:max="100"
+                                android:progressDrawable="@drawable/progress_bar_shopping" />
+
+                            <TextView
+                                android:id="@+id/tvShoppingPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="#10B981"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="6dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Summary Insights Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Summary Insights"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/navy_text"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Summary Insights Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_card"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvSummaryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Expense Activity"
+                    android:textColor="@color/navy_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSummaryDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Record your daily expenses to see automatic financial summaries and insights here."
+                    android:textColor="#64748B"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar (Active on Analytics Graph) -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationInsights"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nav Item 1: Home -->
+        <FrameLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_home" />
+        </FrameLayout>
+
+        <!-- Nav Item 2: Hexagon Category -->
+        <FrameLayout
+            android:id="@+id/navHexagon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_hexagon" />
+        </FrameLayout>
+
+        <!-- Nav Item 3: Center Plus Action Button -->
+        <FrameLayout
+            android:id="@+id/btnNavPlus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_circle_button"
+                android:padding="14dp"
+                android:src="@drawable/ic_nav_plus" />
+        </FrameLayout>
+
+        <!-- Nav Item 4: Analytics Line Graph (Active with Top Dot Indicator) -->
+        <FrameLayout
+            android:id="@+id/navGraph"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_graph_active" />
+        </FrameLayout>
+
+        <!-- Nav Item 5: Profile -->
+        <FrameLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_profile" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingHorizontal="22dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="24dp">
+
+    <!-- Top Drag Handle -->
+    <View
+        android:layout_width="44dp"
+        android:layout_height="4dp"
+        android:background="#CBD5E1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Sheet Title -->
+    <TextView
+        android:id="@+id/tvSheetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Record Income"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Sheet Subtitle -->
+    <TextView
+        android:id="@+id/tvSheetSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Track how much you've earned."
+        android:textSize="13.5sp"
+        android:textColor="#64748B"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="18dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Segmented Tab Switcher (Income / Expense) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_tab_container"
+        android:padding="4dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp">
+
+        <!-- Income Tab -->
+        <TextView
+            android:id="@+id/tabIncome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Income"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_income_active" />
+
+        <!-- Expense Tab -->
+        <TextView
+            android:id="@+id/tabExpense"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Expense"
+            android:textColor="#475569"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_tab_inactive" />
+    </LinearLayout>
+
+    <!-- Form Field 1: Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_field"
+        android:paddingHorizontal="14dp"
+        android:layout_marginBottom="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_field_edit" />
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="e.g. &quot;Salary&quot;, &quot;Freelance Project&quot;"
+            android:textColorHint="#94A3B8"
+            android:textColor="@color/navy_text"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp"
+            android:inputType="text"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <!-- Form Field 2: Category -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutCategory"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_field"
+        android:paddingHorizontal="14dp"
+        android:layout_marginBottom="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_field_tag" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select category"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_chevron_down" />
+    </LinearLayout>
+
+    <!-- Form Field 3: Amount -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_field"
+        android:paddingHorizontal="14dp"
+        android:layout_marginBottom="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_field_card" />
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="Enter Amount"
+            android:textColorHint="#94A3B8"
+            android:textColor="@color/navy_text"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp"
+            android:inputType="numberDecimal"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+
+
+    <!-- Form Field 5: Date -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutDate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_field"
+        android:paddingHorizontal="14dp"
+        android:layout_marginBottom="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_field_calendar" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select date"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp" />
+    </LinearLayout>
+
+    <!-- Form Field 6: Invoice (Optional) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invoice (Optional)"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_text"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutUpload"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_dashed_upload"
+        android:layout_marginBottom="22dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_upload_plus" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Attachment"
+            android:textColor="#475569"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Save Button -->
+    <TextView
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/bg_btn_save"
+        android:layout_marginBottom="12dp" />
+
+</LinearLayout>

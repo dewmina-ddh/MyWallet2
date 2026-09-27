@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    tools:context=".MainActivity">
+
+    <!-- Scrollable Body Content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="84dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
+
+            <!-- Top Header (Overview & Action Buttons) -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Overview"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/navy_text"
+                    android:layout_centerVertical="true" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Notification Bell Icon -->
+                    <ImageView
+                        android:id="@+id/btnNotificationMain"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:padding="11dp"
+                        android:src="@drawable/ic_bell"
+                        android:layout_marginEnd="12dp"
+                        android:contentDescription="Notifications" />
+
+                    <!-- User Profile Icon -->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/btnProfileMain"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_user_profile"
+                        android:contentDescription="Profile"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Stacked Net Balance Card Container -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <!-- Layered Back Card Tab -->
+                <View
+                    android:layout_width="190dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="0dp"
+                    android:background="@drawable/bg_dark_card_back" />
+
+                <!-- Front Main Net Balance Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_dark_card"
+                    android:padding="22dp">
+
+                    <!-- Net Balance Header Row with Wallet Icon inside White Circle Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- White Circular Wallet Badge -->
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_circle_white"
+                            android:padding="11dp"
+                            android:src="@drawable/ic_wallet_card"
+                            android:layout_marginEnd="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Net Balance"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Net Balance Amount -->
+                    <TextView
+                        android:id="@+id/tvNetBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$0.00"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="24dp" />
+
+                    <!-- Total Income & Total Expenses Cards with clear dark background gap in between -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <!-- Total Income Box -->
+                        <LinearLayout
+                            android:id="@+id/cardTotalIncome"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_white_card"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="16dp"
+                            android:layout_marginEnd="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/bg_circle_income"
+                                    android:padding="5dp"
+                                    android:src="@drawable/ic_arrow_income"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Income"
+                                    android:textColor="@color/navy_text"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvTotalIncome"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$0.00"
+                                android:textColor="@color/navy_text"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp" />
+                        </LinearLayout>
+
+                        <!-- Total Expenses Box -->
+                        <LinearLayout
+                            android:id="@+id/cardTotalExpenses"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_white_card"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="16dp"
+                            android:layout_marginStart="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/bg_circle_expense"
+                                    android:padding="5dp"
+                                    android:src="@drawable/ic_arrow_expense"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Expenses"
+                                    android:textColor="@color/navy_text"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvTotalExpenses"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$0.00"
+                                android:textColor="@color/navy_text"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Categories Section Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/navy_text"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/btnViewAllCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_pill_dark"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!-- Dynamic Categories Horizontal Scroll List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMainCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:layout_marginBottom="26dp" />
+
+            <!-- Recent Transactions Section Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recent Transactions"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/navy_text"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/btnViewAllTransactions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_pill_dark"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!-- Dynamic Recent Transactions List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:visibility="gone" />
+
+            <!-- Empty State if no transactions recorded yet -->
+            <TextView
+                android:id="@+id/tvEmptyTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No transactions recorded yet.\nTap '+' below to record your first income or expense!"
+                android:gravity="center"
+                android:textColor="#94A3B8"
+                android:textSize="14sp"
+                android:paddingVertical="32dp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nav Item 1: Home (with active indicator dot) -->
+        <FrameLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_home_active" />
+        </FrameLayout>
+
+        <!-- Nav Item 2: Hexagon Category -->
+        <FrameLayout
+            android:id="@+id/navHexagon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_hexagon" />
+        </FrameLayout>
+
+        <!-- Nav Item 3: Center Plus Action Button -->
+        <FrameLayout
+            android:id="@+id/btnNavPlus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_circle_button"
+                android:padding="14dp"
+                android:src="@drawable/ic_nav_plus" />
+        </FrameLayout>
+
+        <!-- Nav Item 4: Analytics Line Graph -->
+        <FrameLayout
+            android:id="@+id/navGraph"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_graph" />
+        </FrameLayout>
+
+        <!-- Nav Item 5: Profile -->
+        <FrameLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_profile" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

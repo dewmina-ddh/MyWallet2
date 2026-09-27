@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyWallet" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Window Animations for smooth navigation -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="Theme.MyWallet" parent="Base.Theme.MyWallet" />
+
+    <!-- Smooth Transition Styles -->
+    <style name="WindowAnimationTransition">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <!-- Circular Image Overlay Style -->
+    <style name="ShapeAppearance.App.CircleImageView" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

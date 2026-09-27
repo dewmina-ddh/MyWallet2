@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutMainCategoryItem"
+    android:layout_width="76dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginEnd="12dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <!-- Category Icon Container -->
+    <ImageView
+        android:id="@+id/imgMainCategoryIcon"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:background="@drawable/bg_white_card"
+        android:padding="14dp"
+        android:src="@drawable/ic_category_food"
+        android:contentDescription="Category Icon" />
+
+    <!-- Category Name -->
+    <TextView
+        android:id="@+id/tvMainCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textColor="@color/navy_text"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="7dp" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Bus Body -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M4,4h16a2,2 0,0 1,2 2v11a2,2 0,0 1,-2 2h-16a2,2 0,0 1,-2 -2v-11a2,2 0,0 1,2 -2z" />
+    <!-- Windshield / Window Line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M2,10h20 M12,4v6" />
+    <!-- Wheels -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M6,19a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0 M15,19a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0" />
+</vector>

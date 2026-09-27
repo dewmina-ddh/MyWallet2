@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categoriesMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    tools:context=".CategoriesActivity">
+
+    <!-- Scrollable Categories Content -->
+    <ScrollView
+        android:id="@+id/scrollViewCategories"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="84dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
+
+            <!-- Top Header: Title + Add Category Button -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/navy_text"
+                    android:layout_centerVertical="true" />
+
+                <!-- Add Category Button -->
+                <TextView
+                    android:id="@+id/btnAddCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Add Category"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_pill_dark"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="9dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_search_bar"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="18dp">
+
+                <!-- Search Icon -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search" />
+
+                <!-- Search Input / Hint -->
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Search"
+                    android:textColorHint="#94A3B8"
+                    android:textColor="@color/navy_text"
+                    android:textSize="15sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch" />
+
+                <!-- Voice Mic Icon -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_mic"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="Voice Search" />
+
+                <!-- Filter Sliders Icon -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_filter_sliders"
+                    android:contentDescription="Filter" />
+            </LinearLayout>
+
+            <!-- Dynamic Categories List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_category"
+                tools:itemCount="6" />
+
+            <!-- Empty State for Search or Empty Category List -->
+            <TextView
+                android:id="@+id/tvEmptyCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No categories found.\nTap '+ Add Category' to create one!"
+                android:gravity="center"
+                android:textColor="#94A3B8"
+                android:textSize="14sp"
+                android:paddingVertical="32dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar (Active on Hexagon Category) -->
+    <LinearLayout
+        android:id="@+id/bottomNavigationCategories"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nav Item 1: Home -->
+        <FrameLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_home" />
+        </FrameLayout>
+
+        <!-- Nav Item 2: Hexagon Category (Active with top dot indicator) -->
+        <FrameLayout
+            android:id="@+id/navHexagon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_hexagon_active" />
+        </FrameLayout>
+
+        <!-- Nav Item 3: Center Plus Action Button -->
+        <FrameLayout
+            android:id="@+id/btnNavPlus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_circle_button"
+                android:padding="14dp"
+                android:src="@drawable/ic_nav_plus" />
+        </FrameLayout>
+
+        <!-- Nav Item 4: Analytics Line Graph -->
+        <FrameLayout
+            android:id="@+id/navGraph"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_graph" />
+        </FrameLayout>
+
+        <!-- Nav Item 5: Profile -->
+        <FrameLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_profile" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

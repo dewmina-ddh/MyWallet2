@@ -1,0 +1,52 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp"
+    android:height="170dp"
+    android:viewportWidth="360"
+    android:viewportHeight="170">
+
+    <!-- Gradient Filled Area under the curve -->
+    <path
+        android:pathData="M 10,115 C 30,85 50,115 70,105 C 90,95 110,80 130,85 C 150,90 170,100 190,80 C 210,60 230,40 250,22 C 265,10 280,30 295,65 C 310,100 330,85 350,75 L 350,170 L 10,170 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="180"
+                android:startY="10"
+                android:endX="180"
+                android:endY="170"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#26143A52" />
+                <item android:offset="0.6" android:color="#0D143A52" />
+                <item android:offset="1.0" android:color="#00143A52" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Vertical Dashed Guide Line under Peak -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M 255,25 L 255,165" />
+
+    <!-- Main Curved Trend Line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#143A52"
+        android:strokeWidth="2.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M 10,115 C 30,85 50,115 70,105 C 90,95 110,80 130,85 C 150,90 170,100 190,80 C 210,60 230,40 250,22 C 265,10 280,30 295,65 C 310,100 330,85 350,75" />
+
+    <!-- Peak Outer Glow Circle -->
+    <path
+        android:fillColor="#4D143A52"
+        android:pathData="M 255,22 m -7,0 a 7,7 0 1,0 14,0 a 7,7 0 1,0 -14,0" />
+
+    <!-- Peak Center Solid Circle -->
+    <path
+        android:fillColor="#0C2132"
+        android:pathData="M 255,22 m -4,0 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0" />
+
+</vector>

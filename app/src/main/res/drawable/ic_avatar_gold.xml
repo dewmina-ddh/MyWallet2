@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="70dp"
+    android:height="70dp"
+    android:viewportWidth="70"
+    android:viewportHeight="70">
+    <!-- Outer Dark Gold Circle -->
+    <path
+        android:fillColor="#7B4E04"
+        android:pathData="M35,35m-34,0a34,34 0 1,0 68,0a34,34 0 1,0 -68,0" />
+    <!-- White border stroke -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:pathData="M35,35m-33,0a33,33 0 1,0 66,0a33,33 0 1,0 -66,0" />
+    <!-- Head -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,32a10,10 0 1,0 -0.001,0z" />
+    <!-- Shoulders -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,46c-11,0 -19,6 -20,15a33,33 0 0,0 40,0c-1,-9 -9,-15 -20,-15z" />
+</vector>

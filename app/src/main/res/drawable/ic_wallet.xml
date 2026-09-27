@@ -1,0 +1,25 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+    <!-- Outer Rounded Box -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/white"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M5,7h18a3,3 0,0 1,3 3v11a3,3 0,0 1,-3 3h-18a3,3 0,0 1,-3 -3v-11a3,3 0,0 1,3 -3z" />
+    <!-- Upper Slot Line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/white"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:pathData="M2,11h24" />
+    <!-- Lock / Latch Dot -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M7,17.5a1.5,1.5 0,1 0,3 0a1.5,1.5 0,1 0,-3 0" />
+</vector>

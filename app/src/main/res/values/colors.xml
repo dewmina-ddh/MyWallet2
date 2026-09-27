@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Screen Background -->
+    <color name="bg_screen">#DFE7EF</color>
+    
+    <!-- Navy Brand Colors -->
+    <color name="navy_darkest">#071926</color>
+    <color name="navy_dark">#0D293E</color>
+    <color name="navy_card">#0F2D42</color>
+    <color name="navy_primary">#143A52</color>
+    <color name="navy_text">#0C2132</color>
+    <color name="text_secondary">#5A6F82</color>
+    <color name="text_muted">#8A9BAA</color>
+    
+    <!-- Status & Category Colors -->
+    <color name="income_green">#16A34A</color>
+    <color name="income_green_bg">#DCFCE7</color>
+    <color name="income_green_badge_txt">#15803D</color>
+    <color name="income_green_txt">#16A34A</color>
+    
+    <color name="expense_red">#DC2626</color>
+    <color name="expense_red_bg">#FEE2E2</color>
+    <color name="expense_red_txt">#B91C1C</color>
+    
+    <!-- Category Icon Colors -->
+    <color name="cat_food">#EA580C</color>
+    <color name="cat_invest">#059669</color>
+    <color name="cat_shopping">#9333EA</color>
+    <color name="cat_utilities">#F59E0B</color>
+</resources>

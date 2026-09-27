@@ -1,0 +1,33 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Active Top Dot -->
+    <path
+        android:fillColor="@color/navy_primary"
+        android:pathData="M12,1a1.5,1.5 0 1,0 0.001,0z" />
+    <!-- Outer Circle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/navy_primary"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M12,4A8.5,8.5 0 1,0 20.5,12.5A8.5,8.5 0 0,0 12,4z" />
+    <!-- User Head -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/navy_primary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M12,11.5a2.5,2.5 0 1,0 0,-5a2.5,2.5 0 0,0 0,5z" />
+    <!-- User Shoulder Arc -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/navy_primary"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M7,18a5,5 0 0,1 10,0" />
+</vector>

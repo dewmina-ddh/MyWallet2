@@ -1,0 +1,22 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+    <!-- Fork -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/cat_food"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M7,5v6a3,3 0,0 0,6 0V5 M10,11v12 M10,5v6" />
+    <!-- Knife -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/cat_food"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M18,5v8a3,3 0,0 0,3 -3V5a3,3 0,0 0,-3 0z M18,13v10" />
+</vector>

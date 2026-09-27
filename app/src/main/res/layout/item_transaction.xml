@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardTransactionItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_white_card"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="14dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="12dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <!-- Transaction Icon -->
+    <ImageView
+        android:id="@+id/imgTransIcon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:src="@drawable/ic_trans_briefcase"
+        android:layout_marginEnd="14dp" />
+
+    <!-- Details Column (Title & Category/Date) -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTransTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Salary"
+            android:textStyle="bold"
+            android:textColor="@color/navy_text"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/tvTransCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salary &amp; Jobs"
+                android:textColor="@color/navy_text"
+                android:textSize="12.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" &#8226; "
+                android:textColor="#94A3B8"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvTransDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nov 25, 2026"
+                android:textColor="#94A3B8"
+                android:textSize="12.5sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Amount and Payment Method Column -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTransAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+$2,000.00"
+            android:textColor="@color/income_green_txt"
+            android:textSize="15.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTransPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bank"
+            android:textColor="#94A3B8"
+            android:textSize="11.5sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+</LinearLayout>
